@@ -6,11 +6,13 @@
   <script>
     window.onload = function() {
       const params = new URLSearchParams(window.location.search);
-      const redirectURL = params.get("eiRedirect");
+      const dynataRedirect = params.get("eiRedirect");
 
-      if (redirectURL) {
-        window.location.href = redirectURL;
+      if (dynataRedirect) {
+        // Auto-redirect to the Dynata-provided endpoint
+        window.location.href = `https://dkr1.ssisurveys.com/projects/end?eiRedirect=${dynataRedirect}`;
       } else {
+        // Show thank-you message if no redirect param
         document.getElementById("message").style.display = "block";
       }
     };
@@ -23,3 +25,4 @@
   </div>
 </body>
 </html>
+

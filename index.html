@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Complete</title>
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const redirectURL = params.get("eiRedirect");
+
+      if (redirectURL) {
+        window.location.href = redirectURL;
+      } else {
+        document.getElementById("message").style.display = "block";
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="message" style="display:none;">
+    <h1>Thank you for completing the survey!</h1>
+    <p>Your response has been recorded.</p>
+  </div>
+</body>
+</html>
